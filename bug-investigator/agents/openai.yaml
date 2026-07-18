@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bug Investigator"
+  short_description: "Investigate bugs and root causes"
+  default_prompt: "Use $bug-investigator to investigate this bug and identify the root cause."
