@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Quality"
+  short_description: "Review code quality and commit readiness"
+  default_prompt: "Use $review-quality to review my current project changes before committing."
