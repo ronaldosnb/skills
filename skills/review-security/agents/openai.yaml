@@ -1,4 +1,0 @@
-interface:
-  display_name: "Review Security"
-  short_description: "Review security risks and hardening gaps"
-  default_prompt: "Use $review-security to review my current project changes for security risks."
