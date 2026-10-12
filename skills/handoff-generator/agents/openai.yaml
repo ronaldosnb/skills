@@ -1,4 +1,0 @@
-interface:
-  display_name: "Handoff Generator"
-  short_description: "Gera continuidade técnica entre conversas"
-  default_prompt: "Use $handoff-generator para gerar ou atualizar o HANDOFF_CODEX.md deste projeto."
