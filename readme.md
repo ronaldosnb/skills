@@ -12,6 +12,41 @@ Cada skill contém instruções que orientam o agente sobre quando agir, quais c
 | `git-workflow` | Aplica o fluxo pessoal de Git: branches e commits em português, convenções de nomenclatura e nenhuma integração automática. | “Crie uma branch para esta implementação.” / “Prepare o commit.” |
 | `handoff-context` | Prepara o contexto técnico para continuar o trabalho em outra conversa, como resumo no chat ou em um `HANDOFF_CODEX.md`. | “Gere um handoff.” / “Prepare o contexto para um novo chat.” |
 
+## Como instalar
+
+A forma mais simples é usar a CLI [`skills`](https://github.com/vercel-labs/skills), que exige apenas Node.js. Ela instala por symlink, funciona com vários agentes (Codex, Claude Code e outros) e permite atualizar depois.
+
+Instalar todas as skills deste repositório:
+
+```bash
+npx skills add ronaldosnb/my-skills -g --skill '*'
+```
+
+Instalar apenas uma:
+
+```bash
+npx skills add ronaldosnb/my-skills -g --skill bug-investigator
+```
+
+Comandos úteis depois da instalação:
+
+```bash
+npx skills list -g     # mostra o que está instalado
+npx skills update -g   # atualiza para a versão mais recente
+```
+
+Use `-a <agente>` para escolher em quais agentes instalar. Reinicie o agente ou inicie uma nova conversa para que ele carregue as novas skills.
+
+### Instalação manual
+
+Se preferir não usar a CLI, clone o repositório e copie as pastas desejadas:
+
+```bash
+git clone https://github.com/ronaldosnb/my-skills.git
+mkdir -p ~/.codex/skills
+cp -R my-skills/skills/* ~/.codex/skills/
+```
+
 ## Skills de terceiros que uso
 
 Estas skills não estão neste repositório. Instale a partir da fonte original e leia o conteúdo antes de instalar.
@@ -21,28 +56,12 @@ Estas skills não estão neste repositório. Instale a partir da fonte original 
 | `impeccable` | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Design, crítica e polimento de interfaces frontend. |
 | `grill-with-docs` | [mattpocock/skills](https://github.com/mattpocock/skills) | Entrevista para refinar um plano ou design, gerando ADRs e glossário. |
 
-## Como instalar
-
-1. Clone este repositório:
-
-   ```bash
-   git clone https://github.com/ronaldosnb/my-skills.git
-   ```
-
-2. Copie as pastas desejadas para o diretório de skills do Codex:
-
-   ```bash
-   mkdir -p ~/.codex/skills
-   cp -R my-skills/skills/* ~/.codex/skills/
-   ```
-
-3. Reinicie o Codex ou inicie uma nova conversa para que ele carregue as novas skills.
-
-Também é possível instalar apenas uma skill. Por exemplo:
-
 ```bash
-cp -R my-skills/skills/bug-investigator ~/.codex/skills/
+npx skills add pbakaus/impeccable -g
+npx skills add mattpocock/skills -g --skill grill-with-docs grilling domain-modeling
 ```
+
+A `grill-with-docs` depende das skills `grilling` e `domain-modeling`, do mesmo repositório; por isso as três são instaladas juntas.
 
 ## Como usar
 
