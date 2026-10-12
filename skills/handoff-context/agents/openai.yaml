@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handoff Context"
+  short_description: "Prepare context for continuing work"
+  default_prompt: "Use $handoff-context to prepare a concise project handoff for a new chat."
