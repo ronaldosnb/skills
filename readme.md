@@ -19,13 +19,13 @@ A forma mais simples é usar a CLI [`skills`](https://github.com/vercel-labs/ski
 Instalar todas as skills deste repositório:
 
 ```bash
-npx skills add ronaldosnb/my-skills -g --skill '*'
+npx skills add ronaldosnb/skills -g --skill '*'
 ```
 
 Instalar apenas uma:
 
 ```bash
-npx skills add ronaldosnb/my-skills -g --skill bug-investigator
+npx skills add ronaldosnb/skills -g --skill bug-investigator
 ```
 
 Comandos úteis depois da instalação:
@@ -42,26 +42,25 @@ Use `-a <agente>` para escolher em quais agentes instalar. Reinicie o agente ou 
 Se preferir não usar a CLI, clone o repositório e copie as pastas desejadas:
 
 ```bash
-git clone https://github.com/ronaldosnb/my-skills.git
+git clone https://github.com/ronaldosnb/skills.git
 mkdir -p ~/.codex/skills
-cp -R my-skills/skills/* ~/.codex/skills/
+cp -R skills/skills/* ~/.codex/skills/
 ```
 
-## Skills de terceiros que uso
+## Skills de terceiros
 
-Estas skills não estão neste repositório. Instale a partir da fonte original e leia o conteúdo antes de instalar.
+| Skill | Fonte | Onde está | Para que serve |
+| --- | --- | --- | --- |
+| `impeccable` | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) (Apache 2.0) | Cópia em `skills/impeccable/` | Design, crítica e polimento de interfaces frontend. |
+| `grill-with-docs` | [mattpocock/skills](https://github.com/mattpocock/skills) | Fora deste repositório | Entrevista para refinar um plano ou design, gerando ADRs e glossário. |
 
-| Skill | Fonte | Para que serve |
-| --- | --- | --- |
-| `impeccable` | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Design, crítica e polimento de interfaces frontend. |
-| `grill-with-docs` | [mattpocock/skills](https://github.com/mattpocock/skills) | Entrevista para refinar um plano ou design, gerando ADRs e glossário. |
+A `impeccable` é instalada junto com as demais skills deste repositório. A `grill-with-docs` deve ser instalada a partir da fonte original; leia o conteúdo antes de instalar:
 
 ```bash
-npx skills add pbakaus/impeccable -g
 npx skills add mattpocock/skills -g --skill grill-with-docs grilling domain-modeling
 ```
 
-A `grill-with-docs` depende das skills `grilling` e `domain-modeling`, do mesmo repositório; por isso as três são instaladas juntas.
+Ela depende das skills `grilling` e `domain-modeling`, do mesmo repositório; por isso as três são instaladas juntas.
 
 ## Como usar
 
@@ -87,7 +86,8 @@ Gere um HANDOFF_CODEX.md para que eu continue este projeto em outro chat.
 skills/
 ├── bug-investigator/
 ├── git-workflow/
-└── handoff-context/
+├── handoff-context/
+└── impeccable/
 ```
 
 Cada pasta de skill possui um arquivo `SKILL.md`, que contém as instruções e os critérios de acionamento. Algumas também incluem configurações complementares em `agents/`.
