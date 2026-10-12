@@ -1,6 +1,6 @@
 # Minhas Skills para Codex
 
-Uma coleção de skills em português para tornar o trabalho com o Codex mais consistente em tarefas de investigação, revisão e continuidade de projetos.
+Uma coleção de skills em português para tornar o trabalho com o Codex mais consistente em tarefas de investigação, Git e continuidade de projetos.
 
 Cada skill contém instruções que orientam o agente sobre quando agir, quais cuidados tomar e como estruturar a resposta.
 
@@ -9,16 +9,24 @@ Cada skill contém instruções que orientam o agente sobre quando agir, quais c
 | Skill | Para que serve | Exemplos de pedido |
 | --- | --- | --- |
 | `bug-investigator` | Investiga bugs, falhas em testes, regressões, erros de build e comportamentos inesperados antes de propor uma correção. | “Investigue por que este teste falha.” / “Descubra a causa deste erro.” |
-| `handoff-generator` | Cria ou atualiza um `HANDOFF_CODEX.md` com o contexto técnico necessário para continuar o trabalho em outra conversa. | “Gere um handoff.” / “Prepare o contexto para um novo chat.” |
-| `review-quality` | Revisa alterações recentes ou o projeto inteiro quanto a qualidade, organização, arquitetura, testes e prontidão para commit. | “Revise minhas alterações antes do commit.” / “Faça uma revisão geral do projeto.” |
-| `review-security` | Faz uma revisão defensiva de segurança de alterações ou do projeto, cobrindo riscos como autenticação, autorização, secrets e vulnerabilidades comuns. | “Revise a segurança deste PR.” / “Faça uma auditoria de segurança do projeto.” |
+| `git-workflow` | Aplica o fluxo pessoal de Git: branches e commits em português, convenções de nomenclatura e nenhuma integração automática. | “Crie uma branch para esta implementação.” / “Prepare o commit.” |
+| `handoff-context` | Prepara o contexto técnico para continuar o trabalho em outra conversa, como resumo no chat ou em um `HANDOFF_CODEX.md`. | “Gere um handoff.” / “Prepare o contexto para um novo chat.” |
+
+## Skills de terceiros que uso
+
+Estas skills não estão neste repositório. Instale a partir da fonte original e leia o conteúdo antes de instalar.
+
+| Skill | Fonte | Para que serve |
+| --- | --- | --- |
+| `impeccable` | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Design, crítica e polimento de interfaces frontend. |
+| `grill-with-docs` | [mattpocock/skills](https://github.com/mattpocock/skills) | Entrevista para refinar um plano ou design, gerando ADRs e glossário. |
 
 ## Como instalar
 
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/SEU-USUARIO/my-skills.git
+   git clone https://github.com/ronaldosnb/my-skills.git
    ```
 
 2. Copie as pastas desejadas para o diretório de skills do Codex:
@@ -47,15 +55,11 @@ Use a skill bug-investigator para investigar este erro de build.
 ```
 
 ```text
-Revise as alterações atuais antes de eu fazer commit.
+Crie uma branch e prepare o commit desta implementação.
 ```
 
 ```text
 Gere um HANDOFF_CODEX.md para que eu continue este projeto em outro chat.
-```
-
-```text
-Faça uma revisão de segurança completa deste projeto.
 ```
 
 ## Estrutura do repositório
@@ -63,9 +67,8 @@ Faça uma revisão de segurança completa deste projeto.
 ```text
 skills/
 ├── bug-investigator/
-├── handoff-generator/
-├── review-quality/
-└── review-security/
+├── git-workflow/
+└── handoff-context/
 ```
 
 Cada pasta de skill possui um arquivo `SKILL.md`, que contém as instruções e os critérios de acionamento. Algumas também incluem configurações complementares em `agents/`.
